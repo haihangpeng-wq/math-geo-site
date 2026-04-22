@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmath_geo_site=self.webpackChunkmath_geo_site||[]).push([["56"],{8552(e){e.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);
