@@ -14,11 +14,14 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://docusaurus-2-valiant.vercel.app',
-  baseUrl: '/',
+  url: 'https://haihangpeng-wq.github.io',
+  baseUrl: '/math-geo-site/',
 
-  organizationName: 'RynW1988',
+  organizationName: 'haihangpeng-wq',
   projectName: 'math-geo-site',
+  trailingSlash: false,
+
+  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'warn',
 
