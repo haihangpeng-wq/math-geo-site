@@ -14,8 +14,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://haihangpeng-wq.github.io',
-  baseUrl: '/math-geo-site/',
+  url: 'https://docusaurus-2-valiant.vercel.app',
+  baseUrl: '/',
 
   organizationName: 'RynW1988',
   projectName: 'math-geo-site',
