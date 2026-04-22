@@ -14,8 +14,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://your-docusaurus-site.example.com',
-  baseUrl: '/',
+  url: 'https://haihangpeng-wq.github.io',
+  baseUrl: '/math-geo-site/',
 
   organizationName: 'RynW1988',
   projectName: 'math-geo-site',
