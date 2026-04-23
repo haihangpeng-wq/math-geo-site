@@ -14,8 +14,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://haihangpeng-wq.github.io',
-  baseUrl: '/math-geo-site/',
+  url: 'https://rynw-92-geometry.vercel.app',
+  baseUrl: '/',
 
   organizationName: 'haihangpeng-wq',
   projectName: 'math-geo-site',

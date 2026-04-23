@@ -22,7 +22,7 @@ function HomepageHeader() {
           <Link className="button button--primary button--lg" to="/docs/L1/intro">
             开始学习
           </Link>
-          <Link className="button button--outline button--lg" href="#knowledge-map">
+          <Link className="button button--outline button--lg" to="/docs/L1/intro#knowledge-map">
             知识地图
           </Link>
         </div>
@@ -33,11 +33,11 @@ function HomepageHeader() {
 
 function FiveMethods() {
   const methods = [
-    { icon: '🔄', name: '复数', desc: '一个圆、旋转、角信息、相似', active: false },
-    { icon: '📐', name: '解析', desc: '直线型、悬浮垂直平行、双对称、类一试', active: true },
-    { icon: '📏', name: '三线坐标', desc: '重要三角形 + 多对象过顶点', active: false },
-    { icon: '➡️', name: '向量', desc: '点乘、叉乘、线性运算', active: false },
-    { icon: '🧮', name: '三角+纯几', desc: '总兜底和补集', active: false },
+    { icon: '∞', name: '复数', desc: '一个圆、旋转、角信息、相似', active: false },
+    { icon: '∑', name: '解析', desc: '直线型、悬浮垂直平行、双对称、类一试', active: true },
+    { icon: '△', name: '三线坐标', desc: '重要三角形 + 多对象过顶点', active: false },
+    { icon: '→', name: '向量', desc: '点乘、叉乘、线性运算', active: false },
+    { icon: '∠', name: '三角+纯几', desc: '总兜底和补集', active: false },
   ];
 
   return (
