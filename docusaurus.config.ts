@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://rynw-92-geometry.vercel.app',
+  url: 'https://penghh-cal-geometry.vercel.app',
   baseUrl: '/',
 
   organizationName: 'haihangpeng-wq',
