@@ -1,12 +1,9 @@
 import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-
-// 显式导入插件，不使用 require
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 const config: Config = {
-  title: '计算几何竞赛知识站',
+  title: '平面几何竞赛计算方法学习站',
   tagline: '用解析的方法，让竞赛几何题迎刃而解',
   favicon: 'img/favicon.ico',
 
@@ -44,7 +41,7 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-      } satisfies Preset.Options,
+      },
     ],
   ],
 
@@ -52,7 +49,7 @@ const config: Config = {
     {
       href: 'https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css',
       type: 'text/css',
-      integrity: 'sha384-nB0miv6/jRmo5YADh3bCfU+dp29W5dUWdRqaHd0HWqKFmjFMB87rTJnFHQacXkzv',
+      integrity: 'sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+',
       crossorigin: 'anonymous',
     },
   ],
@@ -71,47 +68,44 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          type: 'doc',
+          docId: 'analytic/L1-intro',
+          sidebarId: 'analyticSidebar',
           position: 'left',
-          label: '知识体系',
+          label: '解析',
         },
         {
-          href: '#contact',
-          label: '联系我',
-          position: 'right',
+          type: 'doc',
+          docId: 'complex/L1-intro',
+          sidebarId: 'complexSidebar',
+          position: 'left',
+          label: '复数',
+        },
+        {
+          type: 'doc',
+          docId: 'trilinear/L1-intro',
+          sidebarId: 'trilinearSidebar',
+          position: 'left',
+          label: '三线',
+        },
+        {
+          type: 'doc',
+          docId: 'vector/L1-intro',
+          sidebarId: 'vectorSidebar',
+          position: 'left',
+          label: '向量',
+        },
+        {
+          type: 'doc',
+          docId: 'trig/L1-intro',
+          sidebarId: 'trigSidebar',
+          position: 'left',
+          label: '三角',
         },
       ],
     },
-    footer: {
-      style: 'light',
-      links: [
-        {
-          title: '学习',
-          items: [
-            {
-              label: 'L1 解析几何世界观',
-              to: '/docs/L1/intro',
-            },
-          ],
-        },
-        {
-          title: '社区',
-          items: [
-            {
-              label: '小红书主页',
-              href: 'https://www.xiaohongshu.com',
-            },
-            {
-              label: '学习交流群',
-              href: '#contact',
-            },
-          ],
-        },
-      ],
-      copyright: `© ${new Date().getFullYear()} RynW1988`,
-    },
-  } satisfies Preset.ThemeConfig,
+    footer: {},
+  },
 };
 
 export default config;

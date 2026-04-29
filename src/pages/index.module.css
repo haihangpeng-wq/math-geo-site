@@ -4,6 +4,7 @@
 
 /* Hero */
 .heroBanner {
+  position: relative;
   padding: 6rem 0 4rem;
   text-align: center;
   background: linear-gradient(180deg, var(--ifm-background-surface-color) 0%, var(--ifm-background-color) 100%);
@@ -11,15 +12,15 @@
 }
 
 .heroTitle {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: var(--ifm-text-color);
   margin-bottom: 0.6rem;
 }
 
 .heroSubtitle {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--ifm-color-emphasis-700);
   margin-bottom: 0.4rem;
 }
@@ -36,7 +37,7 @@
     padding: 3.5rem 1.5rem 3rem;
   }
   .heroTitle {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .heroSubtitle {
     font-size: 1rem;
@@ -73,7 +74,7 @@
   line-height: 1.7;
 }
 
-/* Knowledge Map Cards */
+/* Course Cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -104,6 +105,54 @@
   transform: none;
   box-shadow: none;
   border-color: var(--ifm-color-emphasis-200);
+}
+
+/* 总纲卡片 */
+.overviewCard {
+  display: block;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 10px;
+  background: var(--ifm-color-primary-lightest);
+  text-decoration: none !important;
+  color: inherit !important;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.overviewCard:hover {
+  box-shadow: 0 4px 20px rgba(59, 79, 110, 0.12);
+  transform: translateY(-2px);
+}
+
+.overviewCard h3 {
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+  color: var(--ifm-color-primary);
+}
+
+.overviewCard p {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* 卡片内 L1/L2 标签 */
+.cardLevels {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.cardLevels span {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .card h3 {
@@ -138,7 +187,7 @@
 /* Five Methods Grid */
 .methodGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.8rem;
   max-width: 860px;
   margin: 0 auto;
@@ -146,7 +195,7 @@
 
 .methodCard {
   text-align: center;
-  padding: 1.3rem 0.8rem;
+  padding: 1.6rem 0.8rem 1.2rem;
   border-radius: 10px;
   border: 1px solid var(--ifm-color-emphasis-100);
   transition: all 0.2s;
@@ -154,6 +203,8 @@
 
 .methodCard:hover {
   border-color: var(--ifm-color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(59, 79, 110, 0.07);
 }
 
 .methodActive {
@@ -161,38 +212,84 @@
   background: var(--ifm-color-primary-lightest);
 }
 
-.methodIcon {
-  font-size: 1.6rem;
-  margin-bottom: 0.4rem;
+.methodIconWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  color: var(--ifm-color-primary);
+}
+
+.methodActive .methodIconWrap {
+  color: var(--ifm-color-primary);
 }
 
 .methodCard h4 {
   font-size: 0.95rem;
   font-weight: 600;
-  margin-bottom: 0.2rem;
-}
-
-.methodCard p {
-  font-size: 0.8rem;
-  color: var(--ifm-color-emphasis-600);
   margin: 0;
-  line-height: 1.5;
+  color: var(--ifm-text-color);
 }
 
-/* CTA Section */
-.ctaBox {
-  text-align: center;
-  padding: 3rem 2rem;
+/* SVG图标 */
+.methodSvg {
+  width: 44px;
+  height: 44px;
+}
+
+/* Copyright Section */
+.copyrightSection {
+  padding: 2.5rem 0 3.5rem;
   background: var(--ifm-background-surface-color);
-  border: 1px solid var(--ifm-color-emphasis-100);
-  border-radius: 12px;
 }
 
-.ctaButtons {
-  margin: 1.5rem 0;
+.copyrightBox {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.ctaNote {
-  font-size: 0.85rem;
+.copyrightDivider {
+  width: 40px;
+  height: 1px;
+  background: var(--ifm-color-emphasis-300);
+  margin: 0 auto 1.5rem;
+}
+
+.copyrightTitle {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--ifm-color-emphasis-500);
+  margin-bottom: 1rem;
+}
+
+.copyrightList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.copyrightList li {
+  font-size: 0.82rem;
+  color: var(--ifm-color-emphasis-600);
+  line-height: 1.7;
+}
+
+.copyrightAuthor {
+  font-size: 0.78rem;
+  color: var(--ifm-color-emphasis-500);
+}
+
+.copyrightNote {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-500);
+  border-top: 1px solid var(--ifm-color-emphasis-100);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+  font-style: italic;
 }

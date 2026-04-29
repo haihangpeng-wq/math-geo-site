@@ -12,7 +12,7 @@ sidebar_position: 2
 
 直观地说，就是找图中交线最多汇聚的那个点，或者更复杂曲线经过的那个点。比如说，两个圆的一个交点，那就是绝佳的原点候选。
 
-## 坐标减，方程加
+## 分阶段移轴坐标减，方程加
 
 > **公式卡片**
 > $$\text{新原点在原坐标系下坐标为 } (a, b) \implies \text{所有点坐标减去 } (a,b)\text{，所有方程加上 } (a,b)$$
@@ -21,11 +21,6 @@ sidebar_position: 2
 
 ## A(0,0) 框架：默认起手式
 
-> **公式卡片**
-> $$A(0,0),\quad B(-b,-1),\quad C(c,-1)$$
-> $$\tan B = b^{-1},\quad \tan C = c^{-1},\quad \tan\frac{B}{2} = t,\quad \tan\frac{C}{2} = s$$
-> $$O\!\left(\frac{-b+c}{2},\ -\frac{1+bc}{2}\right),\quad H(0,\ -1+bc)$$
-> $$I\!\left(\frac{t-s}{2},\ -\frac{1+ts}{2}\right),\quad b = \frac{1}{2}(t^{-1}-t),\quad c = \frac{1}{2}(s^{-1}-s)$$
 
 ## 简洁是宗教
 

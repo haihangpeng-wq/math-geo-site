@@ -1,5 +1,5 @@
 ---
-slug: /L1/intro
+slug: /analytic/L1/intro
 sidebar_position: 1
 ---
 

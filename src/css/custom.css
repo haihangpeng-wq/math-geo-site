@@ -257,12 +257,23 @@
    底部
    ============================================= */
 .footer {
-  background: var(--ifm-background-surface-color) !important;
-  border-top: 1px solid var(--ifm-color-emphasis-100);
+  display: none !important;
 }
 
-[data-theme='dark'] .footer {
-  background: #15171d !important;
+/* =============================================
+   敬请期待占位页
+   ============================================= */
+.coming-soon {
+  text-align: center;
+  padding: 4rem 1rem;
+  font-size: 1.1rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.coming-soon .emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
 }
 
 /* =============================================
