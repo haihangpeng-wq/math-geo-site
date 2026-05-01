@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://penghh-cal-geometry-math.vercel.app',
+  url: 'https://penghaihang-9plus2bythehouse-computationalgeometry-math.pages.dev',
   baseUrl: '/',
 
   organizationName: 'haihangpeng-wq',
