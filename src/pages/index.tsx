@@ -110,10 +110,10 @@ function HomepageHeader() {
 function FiveMethods() {
   const methods = [
     { icon: <IconAnalytic />, name: '解析', active: true },
+    { icon: <IconTrig />,     name: '三角', active: false },
     { icon: <IconComplex />,  name: '复数', active: false },
     { icon: <IconTrilinear />, name: '三线', active: false },
     { icon: <IconVector />,   name: '向量', active: false },
-    { icon: <IconTrig />,     name: '三角', active: false },
   ];
 
   return (
@@ -156,6 +156,14 @@ function CourseSection() {
               <span>L2 方法论</span>
             </div>
           </Link>
+          <Link to="/docs/trig/L1/intro" className={clsx(styles.card, styles.cardDisabled)}>
+            <h3>三角</h3>
+            <p>三角恒等式与正弦定理、余弦定理的竞赛应用。</p>
+            <div className={styles.cardLevels}>
+              <span>L1 世界观</span>
+              <span>L2 方法论</span>
+            </div>
+          </Link>
           <Link to="/docs/complex/L1/intro" className={clsx(styles.card, styles.cardDisabled)}>
             <h3>复数</h3>
             <p>复数在竞赛几何中的应用，角信息与相似的处理利器。</p>
@@ -175,14 +183,6 @@ function CourseSection() {
           <Link to="/docs/vector/L1/intro" className={clsx(styles.card, styles.cardDisabled)}>
             <h3>向量</h3>
             <p>向量在竞赛几何中的独特优势与应用场景。</p>
-            <div className={styles.cardLevels}>
-              <span>L1 世界观</span>
-              <span>L2 方法论</span>
-            </div>
-          </Link>
-          <Link to="/docs/trig/L1/intro" className={clsx(styles.card, styles.cardDisabled)}>
-            <h3>三角</h3>
-            <p>三角恒等式与正弦定理、余弦定理的竞赛应用。</p>
             <div className={styles.cardLevels}>
               <span>L1 世界观</span>
               <span>L2 方法论</span>
