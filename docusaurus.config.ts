@@ -11,8 +11,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: process.env.DEPLOY_URL || 'http://localhost:3000',
-  baseUrl: process.env.DEPLOY_BASE_URL || '/',
+  url: 'https://penghaihang-9plus2bythehouse-computationalgeometry-math.pages.dev',
+  baseUrl: '/',
 
   organizationName: 'haihangpeng-wq',
   projectName: 'math-geo-site',
