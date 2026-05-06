@@ -19,7 +19,7 @@ sidebar_position: 5
 > A &= (0, 0), \quad B = (-b, -1), \quad C = (c, -1) \\[0.5em]
 > \tan B &= b^{-1}, \quad \tan C = c^{-1} \\[0.5em]
 > \text{外心：}O &= \left(\dfrac{-b+c}{2},\ -\dfrac{1+bc}{2}\right) \\[0.5em]
-> \text{垂心：}H &= (0, -1+bc)
+> \text{垂心：}H &= (0, -1+bc)G\!\left(\frac{-b+c}{3},\ -\frac{2}{3}\right)\quad \text{九点圆圆心：}\left(\frac{-b+c}{2},\ -\frac{3-bc}{2}\right)
 > \end{aligned}
 > $$
 

@@ -1,9 +1,9 @@
 ---
-slug: /analytic/L1/s3-9-circle-circle
+slug: /analytic/L1/s3-4-circle-circle
 sidebar_position: 9
 ---
 
-# §3.9 圆和圆的关系
+# §3.4 圆和圆的关系
 
 ## a. 公切线
 

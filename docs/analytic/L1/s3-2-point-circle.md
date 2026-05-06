@@ -1,9 +1,9 @@
 ---
-slug: /analytic/L1/s3-6-point-circle
-sidebar_position: 5
+slug: /analytic/L1/s3-2-point-circle
+sidebar_position: 2
 ---
 
-# §3.6 点和圆的关系
+# §3.3 点和圆的关系
 
 ## 3.6.A 圆的头
 

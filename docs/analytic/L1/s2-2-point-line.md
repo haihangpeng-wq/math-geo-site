@@ -1,9 +1,9 @@
 ---
-slug: /analytic/L1/s2-3-point-line
-sidebar_position: 3
+slug: /analytic/L1/s2-2-point-line
+sidebar_position: 2
 ---
 
-# §2.3 点和直线的关系
+# §2.2 点和直线的关系
 
 ## A. 点到直线的垂足
 
