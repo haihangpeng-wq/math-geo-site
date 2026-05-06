@@ -34,7 +34,8 @@ jobs:
       - name: Build website
         run: npm run build
         env:
-          NODE_OPTIONS: --use-system-ca=no
+          DEPLOY_URL: https://haihangpeng-wq.github.io
+          DEPLOY_BASE_URL: /math-geo-site/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

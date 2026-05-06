@@ -11,8 +11,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://haihangpeng-wq.github.io',
-  baseUrl: '/math-geo-site/',
+  url: process.env.DEPLOY_URL || 'http://localhost:3000',
+  baseUrl: process.env.DEPLOY_BASE_URL || '/',
 
   organizationName: 'haihangpeng-wq',
   projectName: 'math-geo-site',
