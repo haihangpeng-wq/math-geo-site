@@ -11,14 +11,15 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://penghaihang-9plus2bythehouse-computationalgeometry-math.pages.dev',
-  baseUrl: '/',
+  url: 'https://haihangpeng-wq.github.io',
+  baseUrl: '/math-geo-site/',
 
   organizationName: 'haihangpeng-wq',
   projectName: 'math-geo-site',
   trailingSlash: false,
 
-  deploymentBranch: 'gh-pages',
+  // 使用 GitHub Actions 部署，不使用 gh-pages 分支
+  // deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'warn',
 
