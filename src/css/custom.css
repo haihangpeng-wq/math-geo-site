@@ -226,13 +226,43 @@
 }
 
 /* =============================================
-   导航栏
+   文档侧边栏兜底 — 强制在宽屏下显示
+   Docusaurus 3.x 使用 CSS Media Queries Level 4 (width>=Npx)
+   此处用传统 min-width 语法兜底，防止某些环境不识别 Level 4 语法
    ============================================= */
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container {
+    display: block !important;
+    width: var(--doc-sidebar-width);
+    border-right: 1px solid var(--ifm-toc-border-color);
+  }
+}
+
+/* =============================================
+   响应式 — 移动端侧边栏修复
+   ============================================= */
+
+/* 确保 navbar 在移动端有正确的堆叠层级 */
 .navbar {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--ifm-color-emphasis-100);
+  z-index: 200;
 }
+
+/* 移动端侧边栏遮罩层：必须低于 navbar（200），但高于正文内容 */
+.navbar-sidebar__backdrop {
+  z-index: 195;
+}
+
+/* 移动端侧边栏本体：与 navbar 同级或略高 */
+.navbar-sidebar {
+  z-index: 200;
+}
+
+/* =============================================
+   导航栏
+   ============================================= */
 
 .navbar__title {
   font-family: var(--ifm-heading-font-family);

@@ -5,48 +5,86 @@ sidebar_position: 5
 
 # §0.5 常用框架
 
-> **考场策略：优先套用上述框架，避免零基础计算。** 解析效率依赖对框架内特殊点坐标的熟悉度。
+**优先套用已知框架**，避免造轮子，即零基础计算。 解析效率依赖对框架内特殊点坐标的熟悉度。
 
-例外情况：仅当满足"参与图形生成最多"原则时可灵活调整。
+例外情况：仅当满足**参与图形生成最多**原则时，可灵活调整（简洁优先）。
 
-## §0.5.1 A(0,0) 通用解析框架
+## A(0,0) 框架 ：默认起手式与通用选择
 
-已在 §0.2 中介绍。这里给出**万能系的内心有理化版本（IJS 参数化）**：
+该框架也称万能系。通过设定 $A$ 点为原点，将底边对齐在 $y = -1$ 线上，极大简化了切线与内心的表达。
+
+> **公式卡片 —A(0,0) 基础设定**
+> $$
+> \begin{aligned}
+> A &= (0, 0), \quad B = (-b, -1), \quad C = (c, -1) \\[0.5em]
+> \tan B &= b^{-1}, \quad \tan C = c^{-1} \\[0.5em]
+> \text{外心：}O &= \left(\dfrac{-b+c}{2},\ -\dfrac{1+bc}{2}\right) \\[0.5em]
+> \text{垂心：}H &= (0, -1+bc)
+> \end{aligned}
+> $$
+
+至于内心的表达，我们有**万能系的内心有理化版本（IJS 参数化）**：
 
 > **公式卡片**
-> $$\tan\frac{B}{2} = t,\quad \tan\frac{C}{2} = s,\quad b = \frac{1}{2}(t^{-1}-t),\quad c = \frac{1}{2}(s^{-1}-s)$$
-> $$I\!\left(\frac{t-s}{2},\ -\frac{1+ts}{2}\right),\quad J = \left(\frac{s^{-1}-t^{-1}}{2},\ \frac{-1-s^{-1}t^{-1}}{2}\right)$$
-> $$S = \left(\frac{(t-s)(1+ts)^2}{4ts},\ -\frac{(1+ts)^2}{4ts}\right)$$
-> $$\text{B 旁心 } J_2(-s^{-1}j,\ s^{-1}i),\quad \text{C 旁心 } J_3(t^{-1}j,\ -t^{-1}i)$$
+> $$
+> \begin{aligned}
+> \tan\dfrac{B}{2} &= t, \quad \tan\dfrac{C}{2} = s \\[0.8em]
+> b &= \dfrac{1}{2}(t^{-1}-t), \quad c = \dfrac{1}{2}(s^{-1}-s) \\[0.8em]
+> I &= (i, j)=\left(\dfrac{t-s}{2},\ -\dfrac{1+ts}{2}\right) \\[0.8em]
+> J &= \left(\dfrac{s^{-1}-t^{-1}}{2},\ \dfrac{-1-s^{-1}t^{-1}}{2}\right) \\[0.8em]
+> S &= \left(\dfrac{(t-s)(1+ts)^2}{4ts},\ -\dfrac{(1+ts)^2}{4ts}\right) \quad \text{(南极点)} 
+> \end{aligned}
+> $$
 
-**附录：以 $(i, j)$ 作为基本变量的巧合点表示**
+**附录：以内心坐标 $I(i, j)$ 作为基本变量的巧合点表示**
 
 > **公式卡片**
-> $$b - c = \frac{2ij}{-(1+2j)},\quad bc = \frac{(1+j)^2 - i^2}{-(1+2j)}$$
-> $$O\!\left(\frac{ij}{1+2j},\ \frac{j^2 - i^2}{2(1+2j)}\right)$$
-> $$S\!\left(\frac{ij}{1+2j},\ \frac{j^2}{1+2j}\right),\quad N\!\left(\frac{ij}{1+2j},\ \frac{-i^2}{1+2j}\right)$$
-> $$S_d\!\left(\frac{i(i^2+j^2+j)}{i^2+(j+1)^2},\ \frac{-i^2}{i^2+(j+1)^2}\right) \text{（鲨鱼恶魔点）}$$
+> $$
+> \begin{aligned}
+> b - c &= \dfrac{2ij}{-(1+2j)} \\[0.8em]
+> bc &= \dfrac{(1+j)^2 - i^2}{-(1+2j)} \\[0.8em]
+> O &= \left(\dfrac{ij}{1+2j},\ \dfrac{j^2 - i^2}{2(1+2j)}\right) \\[0.8em]
+> S &= \left(\dfrac{ij}{1+2j},\ \dfrac{j^2}{1+2j}\right) \\[0.8em]
+> J_2 &= (-s^{-1}j,\ s^{-1}i) \quad \text{(B 旁心)} \\[0.8em]
+> J_3 &= (t^{-1}j,\ -t^{-1}i) \quad \text{(C 旁心)}\\[0.8em]
+> N &= \left(\dfrac{ij}{1+2j},\ \dfrac{-i^2}{1+2j}\right) \\[0.8em]
+> S_d &= \left(\dfrac{i(i^2+j^2+j)}{i^2+(j+1)^2},\ \dfrac{-i^2}{i^2+(j+1)^2}\right) \quad \text{（鲨鱼恶魔点）}
+> \end{aligned}
+> $$
 
-## §0.5.2 鸡爪圆内心系框架
+## 鸡爪圆内心系框架
 
 适合**角分线上有大量巧合点**的高端局框架。
 
 > **公式卡片 — S(0,0) 框架：ISJ 自然有理**
-> $$S(0,0),\quad B(-m, n),\quad C(m, n),\quad I(\alpha, \beta),\quad J(-\alpha, -\beta) = -I$$
-> $$\alpha^2 + \beta^2 = 1,\quad m^2 + n^2 = 1$$
-> $$A = \left(\alpha\beta n^{-1},\ \beta^2 n^{-1}\right)$$
-> $$O\!\left(0,\ (2n)^{-1}\right),\quad \text{圆 } ABC: x^2 + y^2 - n^{-1}y = 0$$
-> $$H = \left(\alpha\beta n^{-1},\ 2n - \alpha^2 n^{-1}\right)$$
-> $$G = \left(\frac{\alpha\beta}{3n},\ \frac{\beta^2 + 2n^2}{3n}\right),\quad N\!\left(0,\ n^{-1}\right) = 2O$$
-> $$K = NI \cap \text{圆 } O = \left[\frac{\alpha(1-\beta n)}{n^2 - 2\beta n + 1},\ \frac{\alpha n^{-2}}{n^2 - 2\beta n + 1}\right]$$
+> $$
+> \begin{aligned}
+> S &= (0,0) \\[0.5em]
+> B &= (-m, n), \quad C = (m, n) \\[0.5em]
+> I &= (\alpha, \beta), \quad J = (-\alpha, -\beta) = -I \\[0.5em]
+> \text{满足：} & \alpha^2 + \beta^2 = 1, \quad m^2 + n^2 = 1 \\[0.5em]
+> A &= \left(\alpha\beta n^{-1},\ \beta^2 n^{-1}\right) \\[0.5em]
+> O &= \left(0,\ (2n)^{-1}\right) \\[0.5em]
+> \text{圆 } ABC &: x^2 + y^2 - n^{-1}y = 0 \\[0.5em]
+> H &= \left(\alpha\beta n^{-1},\ 2n - \alpha^2 n^{-1}\right) \\[0.5em]
+> G &= \left(\dfrac{\alpha\beta}{3n},\ \dfrac{\beta^2 + 2n^2}{3n}\right) \\[0.5em]
+> N &= \left(0,\ n^{-1}\right) = 2O \\[0.5em]
+> K &= \left[\dfrac{\alpha(1-\beta n)}{n^2 - 2\beta n + 1},\ \dfrac{\alpha n^{-2}}{n^2 - 2\beta n + 1}\right]
+> \end{aligned}
+> $$
 
-## §0.5.5 其他框架
+## 其他框架
 
 - **$I(0,1)$ 框架**：内心在 $y$ 轴上，$y = 1$ 处。代表例题：P8。
 - **三旁心+内心垂心组框架**：四个旁心和内心构成垂心组。
 - **无奈框架** $A(-1,0), B(1,0)$：代表例题：25 东南双内心、CTST P16。
-- **垂直弦的圆：**
+- **垂直弦的圆：** 如下：
 
-> **公式卡片**
-> $$A(-a,0),\ C(c,0),\ B(0,-b),\ D(0,d),\quad ac = bd = 1$$
-> $$x^2 + y^2 + (a-c)x + (b-d)y - 1 = 0$$
+> **公式卡片 垂直弦的圆**
+> $$
+> \begin{aligned}
+> & A(-a,0),\ C(c,0), \quad B(0,-b),\ D(0,d) \\[0.5em]
+> & \text{满足：} ac = bd = 1 \\[0.5em]
+> & \text{圆方程：} x^2 + y^2 + (a-c)x + (b-d)y - 1 = 0
+> \end{aligned}
+> $$
