@@ -1,5 +1,5 @@
 ---
-slug: /overview
+slug: /docs-overview
 sidebar_position: 0
 ---
 

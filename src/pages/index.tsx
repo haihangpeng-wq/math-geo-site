@@ -97,7 +97,7 @@ function HomepageHeader() {
           用解析的方法，让竞赛平面几何题迎刃而解
         </p>
         <div className={styles.buttons}>
-          <Link className="button button--primary button--lg" to="/docs/overview">
+          <Link className="button button--primary button--lg" to="/overview">
             开始学习
           </Link>
         </div>
@@ -143,7 +143,7 @@ function CourseSection() {
   return (
     <section className={styles.section}>
       <div className="container">
-        <Link to="/docs/overview" className={styles.overviewCard}>
+        <Link to="/overview" className={styles.overviewCard}>
           <h3>计算几何总纲</h3>
           <p>五大方法的对比与选择，通向正确方法论的第一步。</p>
         </Link>
@@ -156,7 +156,7 @@ function CourseSection() {
               <span>L2 方法论</span>
             </div>
           </Link>
-          <Link to="/docs/trig/L1/intro" className={clsx(styles.card, styles.cardDisabled)}>
+          <Link to="/docs/trig/intro" className={clsx(styles.card, styles.cardDisabled)}>
             <h3>三角</h3>
             <p>三角恒等式与正弦定理、余弦定理的竞赛应用。</p>
             <div className={styles.cardLevels}>
@@ -164,7 +164,7 @@ function CourseSection() {
               <span>L2 方法论</span>
             </div>
           </Link>
-          <Link to="/docs/complex/L1/intro" className={clsx(styles.card, styles.cardDisabled)}>
+          <Link to="/docs/complex/intro" className={clsx(styles.card, styles.cardDisabled)}>
             <h3>复数</h3>
             <p>复数在竞赛几何中的应用，角信息与相似的处理利器。</p>
             <div className={styles.cardLevels}>
@@ -172,7 +172,7 @@ function CourseSection() {
               <span>L2 方法论</span>
             </div>
           </Link>
-          <Link to="/docs/trilinear/L1/intro" className={clsx(styles.card, styles.cardDisabled)}>
+          <Link to="/docs/trilinear/intro" className={clsx(styles.card, styles.cardDisabled)}>
             <h3>三线</h3>
             <p>三线坐标在三角形问题中的系统化应用。</p>
             <div className={styles.cardLevels}>
@@ -180,7 +180,7 @@ function CourseSection() {
               <span>L2 方法论</span>
             </div>
           </Link>
-          <Link to="/docs/vector/L1/intro" className={clsx(styles.card, styles.cardDisabled)}>
+          <Link to="/docs/vector/intro" className={clsx(styles.card, styles.cardDisabled)}>
             <h3>向量</h3>
             <p>向量在竞赛几何中的独特优势与应用场景。</p>
             <div className={styles.cardLevels}>
