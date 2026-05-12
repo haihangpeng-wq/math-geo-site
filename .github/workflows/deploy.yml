@@ -84,4 +84,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy build --project-name=math-geo-site
+          command: pages deploy build --project-name=penghaihang-9plus2bythehouse-computationalgeometry-math
