@@ -23,6 +23,14 @@ const config: Config = {
 
   onBrokenLinks: 'warn',
 
+  /* 调试脚本：帮助诊断 Safari 移动端侧边栏问题 */
+  scripts: [
+    {
+      src: '/debug-sidebar.js',
+      async: true,
+    },
+  ],
+
   i18n: {
     defaultLocale: 'zh-Hans',
     locales: ['zh-Hans'],
@@ -100,7 +108,25 @@ const config: Config = {
         },
       ],
     },
-    footer: {},
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: '快速导航',
+          items: [
+            { label: '计算几何总纲', to: '/overview' },
+            { label: '解析几何 · 世界观', to: '/docs/analytic/L1/intro' },
+          ],
+        },
+        {
+          title: '关于本站',
+          items: [
+            { label: '版权声明', to: '/overview' },
+          ],
+        },
+      ],
+      copyright: '© 2024 平面几何竞赛计算方法学习站 · 授权二创站点<br/>《复数版 9+2》《解析版 9+2》《怎样三角》《怎样三线》作者：数之谜 @RynW1988',
+    },
   },
 };
 

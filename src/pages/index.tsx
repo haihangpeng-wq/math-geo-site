@@ -85,6 +85,11 @@ const IconTrig = () => (
   </svg>
 );
 
+/* ── 状态徽章 ── */
+const Badge = ({ label }: { label: string }) => (
+  <span className={styles.badge}>{label}</span>
+);
+
 /* ── Hero ── */
 function HomepageHeader() {
   return (
@@ -95,6 +100,9 @@ function HomepageHeader() {
         </Heading>
         <p className={styles.heroSubtitle}>
           用解析的方法，让竞赛平面几何题迎刃而解
+        </p>
+        <p className={styles.heroAudience}>
+          面向高中竞赛生 &middot; 系统讲解五大计算方法
         </p>
         <div className={styles.buttons}>
           <Link className="button button--primary button--lg" to="/overview">
@@ -109,11 +117,11 @@ function HomepageHeader() {
 /* ── 五大方法 ── */
 function FiveMethods() {
   const methods = [
-    { icon: <IconAnalytic />, name: '解析', active: true },
-    { icon: <IconTrig />,     name: '三角', active: false },
-    { icon: <IconComplex />,  name: '复数', active: false },
-    { icon: <IconTrilinear />, name: '三线', active: false },
-    { icon: <IconVector />,   name: '向量', active: false },
+    { icon: <IconAnalytic />,   name: '解析', active: true,  url: '/docs/analytic/L1/intro' },
+    { icon: <IconTrig />,       name: '三角', active: false, url: '/docs/trig/index' },
+    { icon: <IconComplex />,    name: '复数', active: false, url: '/docs/complex/index' },
+    { icon: <IconTrilinear />,  name: '三线', active: false, url: '/docs/trilinear/index' },
+    { icon: <IconVector />,     name: '向量', active: false, url: '/docs/vector/index' },
   ];
 
   return (
@@ -127,10 +135,26 @@ function FiveMethods() {
         </p>
         <div className={styles.methodGrid}>
           {methods.map((m) => (
-            <div key={m.name} className={clsx(styles.methodCard, m.active && styles.methodActive)}>
+            <Link
+              key={m.name}
+              to={m.active ? m.url : undefined}
+              className={clsx(
+                styles.methodCard,
+                m.active && styles.methodActive,
+                !m.active && styles.methodInactive,
+              )}
+              onClick={!m.active ? (e: React.MouseEvent) => {
+                e.preventDefault();
+                alert(`「${m.name}」模块内容建设中，敬请期待！`);
+              } : undefined}
+              href={m.active ? m.url : '#'}
+              title={!m.active ? `${m.name}模块内容建设中` : undefined}
+            >
               <div className={styles.methodIconWrap}>{m.icon}</div>
-              <h4>{m.name}{m.active && ' ★'}</h4>
-            </div>
+              <h4>{m.name}</h4>
+              {m.active && <Badge label="已上线" />}
+              {!m.active && <span className={styles.badgeMuted}>建设中</span>}
+            </Link>
           ))}
         </div>
       </div>
@@ -202,19 +226,27 @@ function CopyrightSection() {
         <div className={styles.copyrightBox}>
           <div className={styles.copyrightDivider} />
           <p className={styles.copyrightTitle}>版权声明</p>
-          <ul className={styles.copyrightList}>
-            <li>
-              《复数版 9+2》《解析版 9+2》《怎样三角》《怎样三线》
-              <br />
-              <span className={styles.copyrightAuthor}>作者：数之谜 @RynW1988 / 微信公众号 The House Claimed</span>
-            </li>
-            <li>
-              《复数版 9+2》《解析版 9+2》教学脚本
-              <br />
-              <span className={styles.copyrightAuthor}>作者：数之谜 @RynW1988 / 微信公众号 The House Claimed</span>
-            </li>
-            <li>本站作者：彭海航老师</li>
-          </ul>
+          <div className={styles.copyrightList}>
+            <div className={styles.copyrightItem}>
+              <span className={styles.copyrightBooks}>
+                《复数版 9+2》《解析版 9+2》《怎样三角》《怎样三线》
+              </span>
+              <span className={styles.copyrightAuthor}>
+                作者：数之谜 @RynW1988 / 微信公众号 The House Claimed
+              </span>
+            </div>
+            <div className={styles.copyrightItem}>
+              <span className={styles.copyrightBooks}>
+                《复数版 9+2》《解析版 9+2》教学脚本
+              </span>
+              <span className={styles.copyrightAuthor}>
+                作者：数之谜 @RynW1988 / 微信公众号 The House Claimed
+              </span>
+            </div>
+            <div className={styles.copyrightItem}>
+              <span className={styles.copyrightBooks}>本站作者：彭海航老师</span>
+            </div>
+          </div>
           <p className={styles.copyrightNote}>
             本站为数之谜 @RynW1988 和微信公众号 The House Claimed 的授权二创站点
           </p>

@@ -2,8 +2,8 @@
    极简配色方案 — 计算几何竞赛知识站
    ============================================= */
 
-/* 中文字体加载 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=LXGW+WenKai+Lite&display=swap');
+/* 中文字体加载 — 使用国内镜像避免超时，fallback 到系统字体 */
+@import url('https://fonts.proxy.ustclug.org/ajax/libs/google-fonts/1.6.29/css?family=Noto+Serif+SC:400;500;600;700|LXGW+WenKai+Lite&display=swap');
 
 :root {
   /* 极简主色 — 柔和的灰蓝 */
@@ -239,7 +239,7 @@
 }
 
 /* =============================================
-   响应式 — 移动端侧边栏修复
+   响应式 — 移动端侧边栏修复（含 Safari 兼容）
    ============================================= */
 
 /* 确保 navbar 在移动端有正确的堆叠层级 */
@@ -250,15 +250,154 @@
   z-index: 200;
 }
 
-/* 移动端侧边栏遮罩层：必须低于 navbar（200），但高于正文内容 */
+/* =============================================
+   Safari 移动端侧边栏全面修复
+   ============================================= */
+
+/* 1. 遮罩层 - 通用（非 Safari） */
 .navbar-sidebar__backdrop {
-  z-index: 195;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 199 !important;
 }
 
-/* 移动端侧边栏本体：与 navbar 同级或略高 */
+/* 2. 侧边栏容器 - 通用（非 Safari）使用 translate3d */
 .navbar-sidebar {
-  z-index: 200;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: var(--doc-sidebar-width, 280px) !important;
+  height: 100vh !important;
+  z-index: 200 !important;
+  background: var(--ifm-background-color) !important;
+  box-shadow: none !important;
+  
+  /* 初始状态：隐藏在左侧 */
+  -webkit-transform: translate3d(-100%, 0, 0) !important;
+  transform: translate3d(-100%, 0, 0) !important;
+  
+  /* 强制 GPU 加速 */
+  will-change: transform !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  
+  /* 过渡动画 */
+  -webkit-transition: -webkit-transform 0.35s ease !important;
+  transition: transform 0.35s ease !important;
 }
+
+/* 3. 侧边栏显示状态 - 通用 */
+.navbar-sidebar--show {
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 4. 侧边栏内容区域 - 通用 */
+.navbar-sidebar .navbar-sidebar__content {
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* 5. 修复滚动穿透 - 通用 */
+html[dir="ltr"] body.navbar-sidebar--show {
+  overflow: hidden !important;
+}
+
+/* =============================================
+   Safari iOS 专用修复 v2
+   使用 @media 媒体查询针对 Safari iOS
+   ============================================= */
+
+/* Safari iOS 13+ 检测 */
+@supports (-webkit-touch-callout: none) {
+  /* 1. 遮罩层 - Safari 专用 */
+  .navbar-sidebar__backdrop {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    z-index: 199 !important;
+  }
+
+  /* 2. 侧边栏容器 - 完全禁用 transform，改用 left */
+  .navbar-sidebar {
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: var(--doc-sidebar-width, 280px) !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    z-index: 200 !important;
+    background: var(--ifm-background-color) !important;
+    box-shadow: none !important;
+    
+    /* 完全禁用所有 transform */
+    -webkit-transform: none !important;
+    transform: none !important;
+    will-change: auto !important;
+    
+    /* 只使用 left 进行动画 */
+    transition: left 0.3s ease !important;
+    -webkit-transition: left 0.3s ease !important;
+  }
+
+  /* 3. 侧边栏显示状态 */
+  .navbar-sidebar--show {
+    left: 0 !important;
+  }
+
+  /* 4. 侧边栏内容区域 */
+  .navbar-sidebar .navbar-sidebar__content {
+    height: 100% !important;
+    max-height: 100% !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* 5. 修复 Safari 滚动穿透 */
+  body.navbar-sidebar--show {
+    overflow: hidden !important;
+    position: relative !important;
+  }
+}
+
+/* =============================================
+   调试样式 - Safari iOS 测试用
+   取消注释以下样式以辅助诊断
+   ============================================= */
+/*
+// 1. 查看侧边栏是否渲染
+.navbar-sidebar {
+  border: 3px solid red !important;
+}
+
+// 2. 确认 --show 类是否添加
+.navbar-sidebar--show {
+  border: 3px solid lime !important;
+  background: rgba(0, 255, 0, 0.1) !important;
+}
+
+// 3. 查看遮罩层
+.navbar-sidebar__backdrop {
+  border: 3px solid yellow !important;
+}
+
+// 4. 强制显示侧边栏（测试用）
+.navbar-sidebar {
+  left: 0 !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+*/
 
 /* =============================================
    导航栏
@@ -284,10 +423,57 @@
 }
 
 /* =============================================
-   底部
+   底部 — 轻量版权区
    ============================================= */
 .footer {
-  display: none !important;
+  display: block !important;
+  background: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-color-emphasis-100);
+  padding: 1.5rem 0;
+}
+
+.footer__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer__copyright {
+  font-size: 0.78rem;
+  color: var(--ifm-color-emphasis-500);
+  margin: 0;
+}
+
+.footer__links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__links a {
+  font-size: 0.78rem;
+  color: var(--ifm-color-emphasis-500);
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.footer__links a:hover {
+  color: var(--ifm-color-primary);
+}
+
+@media (max-width: 600px) {
+  .footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 }
 
 /* =============================================
