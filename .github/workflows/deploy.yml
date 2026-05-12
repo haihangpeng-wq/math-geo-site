@@ -4,6 +4,15 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      deploy_target:
+        description: '部署目标'
+        required: true
+        default: 'github-pages'
+        type: choice
+        options:
+          - github-pages
+          - cloudflare-pages
 
 permissions:
   contents: read
@@ -15,7 +24,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  deploy-github:
+    if: github.event.inputs.deploy_target == 'github-pages' || github.event.inputs.deploy_target == null
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -48,3 +58,30 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy-cloudflare:
+    if: github.event.inputs.deploy_target == 'cloudflare-pages'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+        env:
+          DEPLOY_URL: https://penghaihang-9plus2bythehouse-computationalgeometry-math.pages.dev
+          DEPLOY_BASE_URL: /
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build --project-name=math-geo-site
